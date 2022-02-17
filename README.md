@@ -20,25 +20,25 @@ System.out.println("2.비밀번호찾기");
 findInfo = sc.nextInt();
 dtos = service.getAllMember();
 if (findInfo == 1) {
-		System.out.print("찾으려는 아이디의 이름 입력 >>");
-		name = sc.next();
-		for (int i = 0; i < dtos.size(); i++) {
-				if (dtos.get(i).getName().equals(name)) {
-						System.out.print("아이디는 [" + dtos.get(i).getID() + "] 입니다.");
-						System.out.println();
-				}
+	System.out.print("찾으려는 아이디의 이름 입력 >>");
+	name = sc.next();
+	for (int i = 0; i < dtos.size(); i++) {
+		if (dtos.get(i).getName().equals(name)) {
+			System.out.print("아이디는 [" + dtos.get(i).getID() + "] 입니다.");
+			System.out.println();
 		}
+	}
 } else if (findInfo == 2) {
-			System.out.print("아이디 입력 >>");
-			id = sc.next();
-			for (int i = 0; i < dtos.size(); i++) {
-					if (dtos.get(i).getID().equals(id)) {
-							System.out.print("비밀번호는 [" + dtos.get(i).getPW() + "] 입니다.");
-							System.out.println();
-						}
-					}
-				}
-				break;
+	System.out.print("아이디 입력 >>");
+	id = sc.next();
+	for (int i = 0; i < dtos.size(); i++) {
+		if (dtos.get(i).getID().equals(id)) {
+			System.out.print("비밀번호는 [" + dtos.get(i).getPW() + "] 입니다.");
+			System.out.println();
+		}
+	}
+}
+	
         
 //메인메뉴
 	public static void Menu() {
@@ -68,22 +68,22 @@ if (findInfo == 1) {
 //좌석 현황
 int seat = 0;
 dtos2 = service2.getAllPcInfo();
-		for (int i = 0; i < dtos2.size(); i++) {
-				seat = dtos2.get(i).getSeat();
-				if (i % 5 == 0) { // 콘솔창 줄바꿈
-						System.out.println();
-						System.out.println(" ---  ---  ---  ---  ---  ");
-						}
-				if (dtos2.get(i).getID() != null) { // pc 좌석이 사용중이라면 *출력
-						System.out.print(" |* |");
-				} else {
-						if (i < 9) {
-								System.out.print(" |" + seat + " |");
-						} else {
-							  System.out.print(" |" + seat + "|");
-						}
-				}
+for (int i = 0; i < dtos2.size(); i++) {
+	seat = dtos2.get(i).getSeat();
+	if (i % 5 == 0) { // 콘솔창 줄바꿈
+		System.out.println();
+		System.out.println(" ---  ---  ---  ---  ---  ");
+	}
+	if (dtos2.get(i).getID() != null) { // pc 좌석이 사용중이라면 *출력
+		System.out.print(" |* |");
+	} else {
+		if (i < 9) {
+			System.out.print(" |" + seat + " |");
+		} else {
+			System.out.print(" |" + seat + "|");
 			}
+		}
+	}
 ```
 
 ### * 좌석 선택 및 시간 구매
@@ -93,22 +93,22 @@ dtos2 = service2.getAllPcInfo();
 
 ```
 for (int i = 0; i < dtos.size(); i++) {
-		if (dtos.get(i).getID().equals(loginId)) {
-		    if (dtos.get(i).getRemainTime() != null) { // 로그인 id에 잔여시간이 있다면
-						String rmHour = dtos.get(i).getRemainTime().substring(11, 13);
-						String rmMinute = dtos.get(i).getRemainTime().substring(14, 16);
-						String rmSecond = dtos.get(i).getRemainTime().substring(17, 19);
+	if (dtos.get(i).getID().equals(loginId)) {
+	if (dtos.get(i).getRemainTime() != null) { // 로그인 id에 잔여시간이 있다면
+		String rmHour = dtos.get(i).getRemainTime().substring(11, 13);
+		String rmMinute = dtos.get(i).getRemainTime().substring(14, 16);
+		String rmSecond = dtos.get(i).getRemainTime().substring(17, 19);
 
-						System.out.println("잔여시간은 " + rmHour + "시간 " + rmMinute + "분 " + rmSecond + "초 입니다.");
+		System.out.println("잔여시간은 " + rmHour + "시간 " + rmMinute + "분 " + rmSecond + "초 입니다.");
             //남은 잔여시간 출력
 
-						remainHour = Integer.parseInt(rmHour); //int로 변환
-						remainMinute = Integer.parseInt(rmMinute);
-						remainSecond = Integer.parseInt(rmSecond);
+		remainHour = Integer.parseInt(rmHour); //int로 변환
+		remainMinute = Integer.parseInt(rmMinute);
+		remainSecond = Integer.parseInt(rmSecond);
 
-						nowHour = nowHour + remainHour; // 현재시간에 잔여시간을 더해 변수에 저장->최종 잔여시간
-						nowMinute = nowMinute + remainMinute;
-						nowSecond = nowSecond + remainSecond;
+		nowHour = nowHour + remainHour; // 현재시간에 잔여시간을 더해 변수에 저장->종료 
+		nowMinute = nowMinute + remainMinute;
+		nowSecond = nowSecond + remainSecond;
             
             
             String endTime = buyHour + ":" + nowMinute + ":" + nowSecond;
