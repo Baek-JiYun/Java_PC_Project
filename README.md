@@ -125,13 +125,13 @@ nowMinute = UseNow.getMinute();
 nowSecond = UseNow.getSecond();
 
 stHour = Math.abs(stHour - nowHour); // 시작시간에서 현재시간을 빼서 사용시간 추출
-stMinute = Math.abs(stMinute - nowMinute);
+stMinute = Math.abs(stMinute - nowMinute); //현재시간 계산 시 날짜가 바뀌면 음수 값이 나올 수 있기 때문에 절댓값으로 계산
 stSecond = Math.abs(stSecond - nowSecond);
 
 rmHour = rmHour + buyTime; // 기존 ID에 남아잇던 잔여시간에 구매시간을 더한다
 
 TotalRMHour = Math.abs(rmHour - stHour -1); // 더한 잔여시간에서 사용시간을 빼면 사용후 남은시간
-TotalRMMinute = Math.abs(rmMinute - stMinute); //날짜가 바뀌면 음수 값이 나올 수 있기 때문에 절댓값으로 계산
+TotalRMMinute = Math.abs(rmMinute - stMinute); 
 TotalRMSecond = Math.abs(rmSecond - stSecond);
 
 String remainTime = TotalRMHour + ":" + TotalRMMinute + ":" + TotalRMSecond;
