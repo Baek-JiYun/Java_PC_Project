@@ -12,7 +12,7 @@
 - ID는 이름으로, PW는 ID로 조회가 가능합니다.
 - ID의 PK값 지정으로 중복 ID는 존재하지않습니다.
 
-```
+```java
 // 아이디, 비밀번호찾기
 int findInfo = 0;
 System.out.println("1.아이디찾기");
@@ -54,7 +54,7 @@ if (findInfo == 1) {
 
 #### * 좌석 현황 및 서브메뉴
 - DB에 저장된 좌석정보를 가져오고 사용중인 자리라면 | * |로 표시됩니다.
-```
+```java
 //서브메뉴
 	public static void subMenu() {
 		System.out.println();
@@ -91,7 +91,7 @@ for (int i = 0; i < dtos2.size(); i++) {
 - 만약 이전에 사용하고 남은 시간이 있다면 합해서 총 잔여 시간을 출력합니다.
 - 사용중인 좌석을 선택한다면 이전 메뉴로 돌아갑니다.
 
-```
+```java
 for (int i = 0; i < dtos.size(); i++) {
 	if (dtos.get(i).getID().equals(loginId)) {
 	if (dtos.get(i).getRemainTime() != null) { // 로그인 id에 잔여시간이 있다면
@@ -118,7 +118,7 @@ for (int i = 0; i < dtos.size(); i++) {
 - 사용자의 시작 시간에서 현재 시간을 뺀 후 사용 시간을 계산합니다.
 - 최종 잔여 시간에서 사용 시간을 뺀 후 DB에 저장합니다.
 
-```
+```java
 LocalDateTime UseNow = LocalDateTime.now();
 nowHour = UseNow.getHour(); // 현재 시(Hour)만 추출
 nowMinute = UseNow.getMinute();
