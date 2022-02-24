@@ -1,16 +1,23 @@
-# 💡 Java+DB PC프로젝트
-- Eclipse를 사용해 진행하였습니다.
-- DataBase는 Oracle을 사용해 진행하였습니다.
+# 🖥️ Java+DB PC프로젝트
+- <b>Language</b> : <img alt="JAVA" src="https://img.shields.io/badge/JAVA-007396?style=flat-square&logo=java&logoColor=white"/>
+- <b>Database</b> : <img alt="Oracle" src ="https://img.shields.io/badge/Oracle-%23F00000.svg?style=flat-square&logo=oracle&logoColor=white" />
+- <b>Tool</b> : <img alt="Eclipse IDE" src="https://img.shields.io/badge/Eclipse IDE-2C2255?style=flat-square&logo=Eclipse IDE&logoColor=white"/>
+- 자바 콘솔로만 작동하는 프로그램입니다.
 
-# <제작기간 및 개발인원>
+## 🔖제작기간 및 개발인원
 - 기간 : 2021.10 ~ 2021.10 (약 1주)
 - 인원 : 1명 (개인프로젝트)
 
-## <주요 기능>
-#### * 메인메뉴
-- PC방 프로그램에서 로그인 이전에는 회원가입 및 탈퇴, 로그인기능을 사용할 수 있습니다.
-- ID는 이름으로, PW는 ID로 조회가 가능합니다.
-- ID의 PK값 지정으로 중복 ID는 존재하지않습니다.
+## 🔖주요 기능
+
+### 🔸 메인메뉴
+- <b>메뉴 선택</b> : 메뉴만 출력해주는 메소드를 따로 만들어 필요할때마다 출력함
+- <b>회원가입 / 로그인 / 로그아웃 / 정보수정</b> : 회원 관련 기능, 로그인 이후 예매 기능 사용가능
+- <b>ID/PW 찾기</b> : ID는 이름 검색으로, PW는 ID 검색으로 찾을 수 있습니다.
+
+<details>
+<summary>코드보기</summary>
+<div markdown="1">
 
 ```java
 // 아이디, 비밀번호찾기
@@ -51,9 +58,18 @@ if (findInfo == 1) {
 
 	}
 ```
+	
+</div>
+</details>
 
-#### * 좌석 현황 및 서브메뉴
-- DB에 저장된 좌석정보를 가져오고 사용중인 자리라면 | * |로 표시됩니다.
+### 🔸서브메뉴
+- 메인메뉴에서 로그인하면 서브메뉴로 들어옵니다.
+- <b>좌석 현황</b> : 데이터베이스에서 좌석현황을 불러와 사용중인 좌석이라면 | * |로 표기됩니다.
+
+<details>
+<summary>코드보기</summary>
+<div markdown="1">
+
 ```java
 //서브메뉴
 	public static void subMenu() {
@@ -85,8 +101,11 @@ for (int i = 0; i < dtos2.size(); i++) {
 		}
 	}
 ```
+	
+</div>
+</details>
 
-### * 좌석 선택 및 시간 구매
+#### 🔸 좌석 선택 및 시간 구매
 - 좌석 선택 후 시간 구매를 할 때 현재 시간을 받아서 계산해 종료시간을 DB에 저장합니다.
 - 만약 이전에 사용하고 남은 시간이 있다면 합해서 총 잔여 시간을 출력합니다.
 - 사용중인 좌석을 선택한다면 이전 메뉴로 돌아갑니다.
@@ -114,7 +133,7 @@ for (int i = 0; i < dtos.size(); i++) {
             String endTime = buyHour + ":" + nowMinute + ":" + nowSecond;
 ```
 
-### * 사용 종료
+#### 🔸 사용 종료
 - 사용자의 시작 시간에서 현재 시간을 뺀 후 사용 시간을 계산합니다.
 - 최종 잔여 시간에서 사용 시간을 뺀 후 DB에 저장합니다.
 
