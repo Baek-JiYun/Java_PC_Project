@@ -15,6 +15,8 @@
 - <b>회원가입 / 로그인 / 로그아웃 / 정보수정</b> : 회원 관련 기능, 로그인 이후 예매 기능 사용가능
 - <b>ID/PW 찾기</b> : ID는 이름 검색으로, PW는 ID 검색으로 찾을 수 있습니다.
 
+<img src="img/main.PNG" width="240" height="330" >
+
 <details>
 <summary>코드보기</summary>
 <div markdown="1">
@@ -62,9 +64,13 @@ if (findInfo == 1) {
 </div>
 </details>
 
+<br>
+
 ### 🔸서브메뉴
 - 메인메뉴에서 로그인하면 서브메뉴로 들어옵니다.
 - <b>좌석 현황</b> : 데이터베이스에서 좌석현황을 불러와 사용중인 좌석이라면 | * |로 표기됩니다.
+
+<img src="img/sub.PNG" width="200" height="300" >
 
 <details>
 <summary>코드보기</summary>
@@ -110,6 +116,9 @@ for (int i = 0; i < dtos2.size(); i++) {
 - 만약 이전에 사용하고 남은 시간이 있다면 합해서 총 잔여 시간을 출력합니다.
 - 사용중인 좌석을 선택한다면 이전 메뉴로 돌아갑니다.
 
+<img src="img/sub2.PNG" width="240" height="300" >
+
+
 ```java
 for (int i = 0; i < dtos.size(); i++) {
 	if (dtos.get(i).getID().equals(loginId)) {
@@ -136,6 +145,8 @@ for (int i = 0; i < dtos.size(); i++) {
 #### 🔸 사용 종료
 - 사용자의 시작 시간에서 현재 시간을 뺀 후 사용 시간을 계산합니다.
 - 최종 잔여 시간에서 사용 시간을 뺀 후 DB에 저장합니다.
+
+<img src="img/final.PNG" width="240" height="230" >
 
 ```java
 LocalDateTime UseNow = LocalDateTime.now();
